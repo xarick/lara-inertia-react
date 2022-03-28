@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Section;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class SectionController extends Controller
@@ -30,7 +31,7 @@ class SectionController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Section/Create');
     }
 
     /**
@@ -41,18 +42,11 @@ class SectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $section = new Section;
+        $section->name = $request->name;
+        $section->save();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return Redirect::route('section.index');
     }
 
     /**

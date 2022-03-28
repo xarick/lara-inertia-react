@@ -27,6 +27,9 @@ export default function Authenticated({ auth, header, children }) {
                                 <NavLink href={route('section.index')} active={route().current('section.index')}>
                                     Bo'limlar
                                 </NavLink>
+                                <NavLink href={route('news.index')} active={route().current('news.index')}>
+                                    Yangiliklar
+                                </NavLink>
                             </div>
                         </div>
 
