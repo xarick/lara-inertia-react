@@ -3761,7 +3761,7 @@ function Index(props) {
                         children: item.title
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("td", {
-                      className: "border border-slate-300 py-1 w-48",
+                      className: "border border-slate-300 py-1 w-40",
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
                         href: "/news/edit/" + item.id,
                         className: "bg-yellow-500 px-1 mr-2 text-sm rounded-md text-white",
@@ -4116,7 +4116,7 @@ function Index(props) {
                       className: "border border-slate-300 py-1",
                       children: item.name
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("td", {
-                      className: "border border-slate-300 py-1 w-48",
+                      className: "border border-slate-300 py-1 w-40",
                       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
                         href: "/sections/edit/" + item.id,
                         className: "bg-yellow-500 px-1 mr-2 text-sm rounded-md text-white",
