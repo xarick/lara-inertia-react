@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Section;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class SectionController extends Controller
 {
@@ -14,7 +16,11 @@ class SectionController extends Controller
      */
     public function index()
     {
-        //
+        $sections = Section::orderBy('id', 'DESC')->get();
+
+        return Inertia::render('Section/Index', [
+            'sections' => $sections,
+        ]);
     }
 
     /**
