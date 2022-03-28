@@ -5,13 +5,13 @@ import { Inertia } from '@inertiajs/inertia';
 
 export default function Index(props) {
 
-    const { data, setData, post, processing, errors } = useForm({
-        name: '',
+    const { data, setData, put, processing, errors } = useForm({
+        name: props.section.name,
     })
 
     const sendSection = (e) => {
         e.preventDefault()
-        post('/sections')
+        put(route('section.update', props.section.id))
     };
 
     return (

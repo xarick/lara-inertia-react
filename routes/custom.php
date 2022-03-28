@@ -18,4 +18,6 @@ Route::middleware('auth')->group(function () {
     Route::get('news/edit/{id}', [NewsController::class, 'edit'])->name('news.edit');
     Route::put('news/{id}', [NewsController::class, 'update'])->name('news.update');
     Route::delete('news/{id}', [NewsController::class, 'destroy'])->name('news.destroy');
+
+    Route::get('news/show/{id}', [NewsController::class, 'show'])->name('news.show');
 });

@@ -787,6 +787,9 @@ select {
 .h-12 {
   height: 3rem;
 }
+.h-60 {
+  height: 15rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -1050,6 +1053,14 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
+.bg-green-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(21 128 61 / var(--tw-bg-opacity));
+}
+.bg-green-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 163 74 / var(--tw-bg-opacity));
+}
 .bg-opacity-75 {
   --tw-bg-opacity: 0.75;
 }
@@ -1180,6 +1191,10 @@ select {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
 .font-medium {
   font-weight: 500;
 }
@@ -1206,6 +1221,12 @@ select {
 }
 .leading-6 {
   line-height: 1.5rem;
+}
+.leading-10 {
+  line-height: 2.5rem;
+}
+.leading-8 {
+  line-height: 2rem;
 }
 .tracking-widest {
   letter-spacing: 0.1em;

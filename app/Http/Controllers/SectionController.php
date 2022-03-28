@@ -57,7 +57,10 @@ class SectionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $section = Section::findOrFail($id);
+        return Inertia::render('Section/Edit', [
+            'section' => $section
+        ]);
     }
 
     /**
@@ -69,7 +72,10 @@ class SectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $section = Section::findOrFail($id);
+        $section->name = $request->name;
+        $section->save();
+        return Redirect::route('section.index');
     }
 
     /**
@@ -80,6 +86,8 @@ class SectionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $section = Section::findOrFail($id);
+        $section->delete();
+        return Redirect::route('section.index');
     }
 }

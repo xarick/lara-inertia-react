@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\News;
+use App\Models\Section;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 
 class NewsController extends Controller
 {
@@ -14,7 +18,11 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $news = News::with('section:id,name')->orderBy('id', 'DESC')->get();
+
+        return Inertia::render('News/Index', [
+            'news' => $news,
+        ]);
     }
 
     /**
@@ -24,7 +32,10 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        $sections = Section::orderBy('id', 'DESC')->get();
+        return Inertia::render('News/Create', [
+            'sections' => $sections,
+        ]);
     }
 
     /**
@@ -35,7 +46,14 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new News;
+        $data->section_id = $request->section_id;
+        $data->title = $request->title;
+        $data->body = $request->body;
+        $data->active = true;
+        $data->save();
+
+        return Redirect::route('news.index');
     }
 
     /**
@@ -46,7 +64,11 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        //
+        $new = News::with('section:id,name')->where('id', $id)->first();
+
+        return Inertia::render('News/Show', [
+            'new' => $new
+        ]);
     }
 
     /**
@@ -57,7 +79,13 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $new = News::findOrFail($id);
+        $sections = Section::orderBy('name', 'ASC')->get();
+
+        return Inertia::render('News/Edit', [
+            'sections' => $sections,
+            'new' => $new
+        ]);
     }
 
     /**
@@ -69,7 +97,12 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = News::findOrFail($id);
+        $data->section_id = $request->section_id;
+        $data->title = $request->title;
+        $data->body = $request->body;
+        $data->save();
+        return Redirect::route('news.index');
     }
 
     /**
@@ -80,6 +113,8 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = News::findOrFail($id);
+        $data->delete();
+        return Redirect::route('news.index');
     }
 }
