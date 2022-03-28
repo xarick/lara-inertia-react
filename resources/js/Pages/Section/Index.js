@@ -24,6 +24,7 @@ export default function Index(props) {
                                     <tr>
                                         <th className="border border-slate-300 py-1">ID</th>
                                         <th className="border border-slate-300 py-1">Nomi</th>
+                                        <th className="border border-slate-300 py-1"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -32,6 +33,10 @@ export default function Index(props) {
                                             <tr key={index} className="text-center">
                                                 <td className="border border-slate-300 py-1">{item.id}</td>
                                                 <td className="border border-slate-300 py-1">{item.name}</td>
+                                                <td className="border border-slate-300 py-1 w-48">
+                                                    <Link href={"/sections/edit/" + item.id} className="bg-yellow-500 px-1 mr-2 text-sm rounded-md text-white">yangilash</Link>
+                                                    <button onClick={() => console.log('ok')} className="bg-red-500 px-1 text-sm rounded-md text-white">O'chirish</button>
+                                                </td>
                                             </tr>
                                         );
                                     })}
